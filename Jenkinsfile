@@ -17,21 +17,19 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn install -Dmaven.test.skip=true'
+                sh 'mvn clean install'
             }
         }
 		
         stage('Unit Tests') {
             steps {
-                sh 'mvn compiler:testCompile'
-                sh 'mvn surefire:test'
-                junit 'target/**/*.xml'
+                sh 'mvn test'
             }
         }
 
-        stage('Deployment') {
+        stage('package') {
             steps {
-                sh 'sshpass -p "staragile" scp target/gamutkart.war staragile@172.31.95.76:/home/staragile/builds/workspace'
+                sh 'mvn package'
             }
         }
     }
