@@ -32,5 +32,10 @@ pipeline {
                 sh 'mvn package'
             }
         }
+        stage('deployment'){
+             steps{
+                sh 'cp /home/staragile/apache-tomcat-9.0.85/webapps /opt/tomcat'
+           }
+       } 
     }
 }
