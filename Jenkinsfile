@@ -32,6 +32,12 @@ pipeline {
                 sh 'mvn package'
             }
        
-       } 
+       }
+        stage('Deployment') {
+            steps {
+                sh 'cp /home/staragile/builds/workspace/sample-declarative1/target/gamutkart.war /opt/tomcat/webapps
+            }
+
+        } 
   }
 }
