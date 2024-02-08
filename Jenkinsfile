@@ -33,11 +33,12 @@ pipeline {
             }
        
        }
-        stage('Deployment') {
+        
+       stage('Deployment') {
             steps {
-                sh 'cp /home/staragile/builds/workspace/sample-declarative1/target/gamutkart.war /opt/tomcat/webapps'
+                sh 'sshpass -p "staragile" scp target/gamutkart.war staragile@172.31.21.169:/home/staragile/builds/workspace'
             }
 
-        } 
+        }
   }
 }
