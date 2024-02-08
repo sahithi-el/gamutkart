@@ -31,10 +31,6 @@ pipeline {
             steps {
                 sh 'mvn package'
             }
-        }
-        stage('deployment'){
-             steps{
-                 sh 'sshpass -p "staragile" scp target/gamutkart.war staragile@172.31.21.169:/home/staragile/builds/workspace'
-           }
+       
        } 
   }
