@@ -35,7 +35,7 @@ pipeline {
        }
         stage('Deployment') {
             steps {
-                sh 'cp /home/staragile/builds/workspace/sample-declarative1/target/gamutkart.war /opt/tomcat/webapps
+                sh 'cp /home/staragile/builds/workspace/sample-declarative1/target/gamutkart.war /opt/tomcat/webapps'
             }
 
         } 
